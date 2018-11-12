@@ -4,6 +4,8 @@ Project Danger Close
 
 **Live Demo**: `<to come/>`
 
+**Project Status**: Super mega early developement.
+
 Jump to [What's new?](https://github.com/azariah001/Danger-Close/blob/master/CHANGELOG.md)
 
 Welcome to Project Danger Close. (PDC hereafter)
@@ -14,9 +16,12 @@ Our goal with PDC is to build a platform not just for character sheet generator 
 
 If even one game designer is able to bring their game to fruition using our project we'll be glad, but our ultimate goal is that either commercial game systems designers will start making digital versions of their system available for purchase to slot into PDC or that they'll take the foundation we've built with PDC and use it as a generator system that they host themselves.
 
+That being said if you're reading this right now we're no where near this goal. If you're a software dev, please hang around and lend a hand. If you're not a dev... maybe star it and come back in a couple of months?
+
 
 
 `\/` Hackathon Starter Kit `\/`
+
 Table of Contents
 -----------------
 
