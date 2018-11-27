@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "_id": "<random generated id>",
+      "username": "String",
+      "password": "Hash string",
+      "email": "",
+      "templates": [ /* array of ID's pointing to db.game.templates */ ],
+      "games": [ /* array of ID's to db.game.sessions */ ],
+      "characters": [
+        {
+          "game.sessions._id": "",
+          "game.sessions.charactersID": ""
+        }
+      ]
+    }
+  ],
+  "game.templates": {
+
+  },
+  "game.sessions": {
+
+  }
+}
