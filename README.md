@@ -6,6 +6,8 @@ Project Danger Close
 
 **Project Status**: Super mega early developement.
 
+**Floobits Status**: [![Floobits Status](https://floobits.com/azariah001/Project-Danger-Close.svg)](https://floobits.com/azariah001/Project-Danger-Close/redirect)  Come say hi.
+
 Jump to [What's new?](https://github.com/azariah001/Danger-Close/blob/master/CHANGELOG.md)
 
 Welcome to Project Danger Close. (PDC hereafter)
