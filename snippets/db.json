@@ -23,12 +23,41 @@
   ],
   "game.templates": [
     {
+      "_id": "<id>",
+      "definitions": {
+        "attributes": [
 
+        ],
+        "secondaryAttributes": [
+
+        ],
+        "system": "<game type ID>",
+        "character": {
+
+        }
+      }
     }
   ],
   "game.sessions": [
     {
-
+      "_id": "<id>",
+      "name": "",
+      "description": "",
+      "owner": "<user id>"
+    }
+  ],
+  "game.systems": [
+    {
+      "_id": "<id>",
+      "name": "",
+      "description": "",
+      "variables": [
+        {
+          "name": "",
+          "description": "",
+          "function": ""
+        }
+      ]
     }
   ]
 }
