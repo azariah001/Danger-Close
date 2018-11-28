@@ -4,9 +4,15 @@
       "_id": "<random generated id>",
       "username": "String",
       "password": "Hash string",
-      "email": "",
-      "templates": [ /* array of ID's pointing to db.game.templates */ ],
-      "games": [ /* array of ID's to db.game.sessions */ ],
+      "email": "test@example.com",
+      "templates": [
+        {
+          "templateID": "", //reference to template in game.templates
+          "name": "",
+          "description": ""
+        }
+      ],
+      "games": [ /* array of ID's pointing to db.game.sessions */ ],
       "characters": [
         {
           "game.sessions._id": "",
@@ -15,10 +21,14 @@
       ]
     }
   ],
-  "game.templates": {
+  "game.templates": [
+    {
 
-  },
-  "game.sessions": {
+    }
+  ],
+  "game.sessions": [
+    {
 
-  }
+    }
+  ]
 }
