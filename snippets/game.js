@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 class Game {
     constructor (template) {
         this.template = template;
@@ -37,4 +38,34 @@ class Game {
         // push game data changes to Mongo
         //TODO update game document
     }
+=======
+class Game {
+    constructor (template) {
+        this.template = template;
+        this.character_ids = [];
+        this.characters = { /* _id: new Character() */ };
+        this.dice = new Dice(template.dice);
+        this.currency = new Currency(template.currency);
+
+        this.attributeNames = template.attributeNames;
+        this.secondaryAttributes = template.secondaryAttributes;
+        this.secondaryAttributesCount = template.secondaryAttributesCount;
+        this.primaryAttributeCount = template.primaryAttributeCount;
+        //TODO Labels 
+    }
+    
+    addCharacter() {
+        this.characters.push(new Character[this.template.characters]);
+    }
+
+    removeCharacter(id) {
+        delete this.characters[id];
+
+        //TODO delete in MongoDB
+
+        this.character_ids.indexOf(id);
+
+        //TODO update game document
+    }
+>>>>>>> Stashed changes
 }
