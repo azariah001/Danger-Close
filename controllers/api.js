@@ -30,7 +30,7 @@ const { Venues, Users } = require('node-foursquare')({
  * List of API examples.
  */
 exports.getApi = (req, res) => {
-  res.render('api/index', {
+  res.render('api/index.pug', {
     title: 'API Examples'
   });
 };
@@ -48,7 +48,7 @@ exports.getFoursquare = async (req, res, next) => {
     const trendingVenues = await getTrendingAsync('40.7222756', '-74.0022724', { limit: 50 }, token.accessToken);
     const venueDetail = await getVenueAsync('49da74aef964a5208b5e1fe3', token.accessToken);
     const userCheckins = await getCheckinsAsync('self', null, token.accessToken);
-    return res.render('api/foursquare', {
+    return res.render('api/foursquare.pug', {
       title: 'Foursquare API',
       trendingVenues,
       venueDetail,
@@ -73,7 +73,7 @@ exports.getTumblr = (req, res, next) => {
   });
   client.blogPosts('mmosdotcom.tumblr.com', { type: 'photo' }, (err, data) => {
     if (err) { return next(err); }
-    res.render('api/tumblr', {
+    res.render('api/tumblr.pug', {
       title: 'Tumblr API',
       blog: data.blog,
       photoset: data.posts[0].photos
@@ -90,7 +90,7 @@ exports.getFacebook = (req, res, next) => {
   graph.setAccessToken(token.accessToken);
   graph.get(`${req.user.facebook}?fields=id,name,email,first_name,last_name,gender,link,locale,timezone`, (err, profile) => {
     if (err) { return next(err); }
-    res.render('api/facebook', {
+    res.render('api/facebook.pug', {
       title: 'Facebook API',
       profile
     });
@@ -109,7 +109,7 @@ exports.getScraping = (req, res, next) => {
     $('.title a[href^="http"], a[href^="https"]').each((index, element) => {
       links.push($(element));
     });
-    res.render('api/scraping', {
+    res.render('api/scraping.pug', {
       title: 'Web Scraping',
       links
     });
@@ -124,7 +124,7 @@ exports.getGithub = async (req, res, next) => {
   const github = new GitHub();
   try {
     const { data: repo } = await github.repos.get({ owner: 'sahat', repo: 'hackathon-starter' });
-    res.render('api/github', {
+    res.render('api/github.pug', {
       title: 'GitHub API',
       repo
     });
@@ -138,7 +138,7 @@ exports.getGithub = async (req, res, next) => {
  * Aviary image processing example.
  */
 exports.getAviary = (req, res) => {
-  res.render('api/aviary', {
+  res.render('api/aviary.pug', {
     title: 'Aviary API'
   });
 };
@@ -158,7 +158,7 @@ exports.getNewYorkTimes = (req, res, next) => {
       return next(new Error('Invalid New York Times API Key'));
     }
     const books = JSON.parse(body).results;
-    res.render('api/nyt', {
+    res.render('api/nyt.pug', {
       title: 'New York Times API',
       books
     });
@@ -222,7 +222,7 @@ exports.getLastfm = async (req, res, next) => {
       topTracks,
       topAlbums
     };
-    res.render('api/lastfm', {
+    res.render('api/lastfm.pug', {
       title: 'Last.fm API',
       artist
     });
@@ -233,12 +233,12 @@ exports.getLastfm = async (req, res, next) => {
       switch (err.error) {
         // potentially handle each code uniquely
         case 10: // Invalid API key
-          res.render('api/lastfm', {
+          res.render('api/lastfm.pug', {
             error: err
           });
           break;
         default:
-          res.render('api/lastfm', {
+          res.render('api/lastfm.pug', {
             error: err
           });
       }
@@ -266,7 +266,7 @@ exports.getTwitter = async (req, res, next) => {
       geocode: '40.71448,-74.00598,5mi',
       count: 10
     });
-    res.render('api/twitter', {
+    res.render('api/twitter.pug', {
       title: 'Twitter API',
       tweets
     });
@@ -355,7 +355,7 @@ exports.getSteam = async (req, res, next) => {
     const playerAchievements = await getPlayerAchievements();
     const playerSummaries = await getPlayerSummaries();
     const ownedGames = await getOwnedGames();
-    res.render('api/steam', {
+    res.render('api/steam.pug', {
       title: 'Steam Web API',
       ownedGames: ownedGames.response,
       playerAchievemments: playerAchievements ? playerAchievements.playerstats : null,
@@ -371,7 +371,7 @@ exports.getSteam = async (req, res, next) => {
  * Stripe API example.
  */
 exports.getStripe = (req, res) => {
-  res.render('api/stripe', {
+  res.render('api/stripe.pug', {
     title: 'Stripe API',
     publishableKey: process.env.STRIPE_PKEY
   });
@@ -403,7 +403,7 @@ exports.postStripe = (req, res) => {
  * Twilio API example.
  */
 exports.getTwilio = (req, res) => {
-  res.render('api/twilio', {
+  res.render('api/twilio.pug', {
     title: 'Twilio API'
   });
 };
@@ -439,7 +439,7 @@ exports.postTwilio = (req, res, next) => {
  * Clockwork SMS API example.
  */
 exports.getClockwork = (req, res) => {
-  res.render('api/clockwork', {
+  res.render('api/clockwork.pug', {
     title: 'Clockwork SMS API'
   });
 };
@@ -470,7 +470,7 @@ exports.getLinkedin = (req, res, next) => {
   const linkedin = Linkedin.init(token.accessToken);
   linkedin.people.me((err, $in) => {
     if (err) { return next(err); }
-    res.render('api/linkedin', {
+    res.render('api/linkedin.pug', {
       title: 'LinkedIn API',
       profile: $in
     });
@@ -492,7 +492,7 @@ exports.getInstagram = async (req, res, next) => {
     const searchByUsername = await userSearchAsync('richellemead');
     const searchByUserId = await userAsync('175948269');
     const myRecentMedia = await userSelfMediaRecentAsync();
-    res.render('api/instagram', {
+    res.render('api/instagram.pug', {
       title: 'Instagram API',
       usernames: searchByUsername,
       userById: searchByUserId,
@@ -538,7 +538,7 @@ exports.getPayPal = (req, res, next) => {
     req.session.paymentId = id;
     for (let i = 0; i < links.length; i++) {
       if (links[i].rel === 'approval_url') {
-        res.render('api/paypal', {
+        res.render('api/paypal.pug', {
           approvalUrl: links[i].href
         });
       }
@@ -554,7 +554,7 @@ exports.getPayPalSuccess = (req, res) => {
   const { paymentId } = req.session;
   const paymentDetails = { payer_id: req.query.PayerID };
   paypal.payment.execute(paymentId, paymentDetails, (err) => {
-    res.render('api/paypal', {
+    res.render('api/paypal.pug', {
       result: true,
       success: !err
     });
@@ -567,7 +567,7 @@ exports.getPayPalSuccess = (req, res) => {
  */
 exports.getPayPalCancel = (req, res) => {
   req.session.paymentId = null;
-  res.render('api/paypal', {
+  res.render('api/paypal.pug', {
     result: true,
     canceled: true
   });
@@ -580,7 +580,7 @@ exports.getPayPalCancel = (req, res) => {
 exports.getLob = (req, res, next) => {
   lob.usZipLookups.lookup({ zip_code: '94107' }, (err, zipdetails) => {
     if (err) { return next(err); }
-    res.render('api/lob', {
+    res.render('api/lob.pug', {
       title: 'Lob API',
       zipdetails,
     });
@@ -593,7 +593,7 @@ exports.getLob = (req, res, next) => {
  */
 
 exports.getFileUpload = (req, res) => {
-  res.render('api/upload', {
+  res.render('api/upload.pug', {
     title: 'File Upload'
   });
 };
@@ -611,7 +611,7 @@ exports.getPinterest = (req, res, next) => {
   const token = req.user.tokens.find(token => token.kind === 'pinterest');
   request.get({ url: 'https://api.pinterest.com/v1/me/boards/', qs: { access_token: token.accessToken }, json: true }, (err, request, body) => {
     if (err) { return next(err); }
-    res.render('api/pinterest', {
+    res.render('api/pinterest.pug', {
       title: 'Pinterest API',
       boards: body.data
     });
@@ -654,7 +654,7 @@ exports.postPinterest = (req, res, next) => {
 };
 
 exports.getGoogleMaps = (req, res) => {
-  res.render('api/google-maps', {
+  res.render('api/google-maps.pug', {
     title: 'Google Maps API',
     google_map_api_key: process.env.GOOGLE_MAP_API_KEY
   });

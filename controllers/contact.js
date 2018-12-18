@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 exports.getContact = (req, res) => {
   const unknownUser = !(req.user);
 
-  res.render('contact', {
+  res.render('contact.pug', {
     title: 'Contact',
     unknownUser,
   });

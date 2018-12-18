@@ -14,7 +14,7 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/login', {
+  res.render('account/login.pug', {
     title: 'Login'
   });
 };
@@ -70,7 +70,7 @@ exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/signup', {
+  res.render('account/signup.pug', {
     title: 'Create Account'
   });
 };
@@ -120,7 +120,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account/profile', {
+  res.render('account/profile.pug', {
     title: 'Account Management'
   });
 };
@@ -235,7 +235,7 @@ exports.getReset = (req, res, next) => {
         req.flash('errors', { msg: 'Password reset token is invalid or has expired.' });
         return res.redirect('/forgot');
       }
-      res.render('account/reset', {
+      res.render('account/reset.pug', {
         title: 'Password Reset'
       });
     });
@@ -333,7 +333,7 @@ exports.getForgot = (req, res) => {
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }
-  res.render('account/forgot', {
+  res.render('account/forgot.pug', {
     title: 'Forgot Password'
   });
 };
