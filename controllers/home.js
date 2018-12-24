@@ -3,7 +3,7 @@
  * Home page.
  */
 exports.index = (req, res) => {
-  res.render('home.pug', {
+  res.render('index.ejs', {
     title: 'Home'
   });
 };

@@ -1,0 +1,21 @@
+{
+  "name": "Project Danger Close",
+  "short_name": "Danger Close",
+  "description": "An online tabletop RPG gaming experience. Encompassing game design, management, and play.",
+  "icons": [
+    {
+      "src": "images/manifest/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/manifest/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#3f51b5",
+  "background_color": "#3f51b5"
+}

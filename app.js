@@ -121,6 +121,8 @@ app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 3155760000
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist'), { maxAge: 31557600000 }));
+app.use('/@polymer', express.static(path.join(__dirname, 'node_modules/@polymer'), { maxAge: 31557600000 }));
+app.use('/@webcomponents', express.static(path.join(__dirname, 'node_modules/@webcomponents'), { maxAge: 31557600000 }));
 app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), { maxAge: 31557600000 }));
 
 /**
