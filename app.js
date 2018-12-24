@@ -19,6 +19,7 @@ const expressValidator = require('express-validator');
 const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
 const multer = require('multer');
+const transformMiddleware = require('express-transform-bare-module-specifiers').default;
 
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
@@ -124,6 +125,15 @@ app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist
 app.use('/@polymer', express.static(path.join(__dirname, 'node_modules/@polymer'), { maxAge: 31557600000 }));
 app.use('/@webcomponents', express.static(path.join(__dirname, 'node_modules/@webcomponents'), { maxAge: 31557600000 }));
 app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), { maxAge: 31557600000 }));
+
+// Using defaults:
+app.use('*', transformMiddleware());
+
+// Using a custom rootDir and modulesUrl:
+/*app.use('*', transformMiddleware({
+  rootDir: path.resolve(__dirname, '/bundles/my-bundle'),
+  modulesUrl: '/bundles/my-bundle/node_modules'
+}))*/
 
 /**
  * Primary app routes.
