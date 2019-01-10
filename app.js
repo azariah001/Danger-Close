@@ -3,7 +3,7 @@
  */
 const express = require('express');
 const polyserve = require('polyserve-deployable');
-const compression = require('compression');
+//const compression = require('compression');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -32,7 +32,6 @@ const upload = multer({ dest: path.join(__dirname, 'uploads') });
  */
 dotenv.load({ path: '.env.example' });
 
-console.log(process.cwd() + '/public');
 const options = {
   port: undefined,
   page: undefined,
@@ -51,7 +50,7 @@ const options = {
     ]
   },
   assetPaths: [
-    '/node_modules/*'
+    '/node_modules/@*'
   ]
 };
 
