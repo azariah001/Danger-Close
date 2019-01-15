@@ -157,7 +157,6 @@ polyserve.startServers(options).then((server) => {
   /**
    * Primary app routes.
    */
-  app.get('/', homeController.index);
   /*app.get('/src/my-app.js', homeController.myApp);
   app.get('/src/my-icons.js', homeController.myIcons);
   app.get('/src/my-view1.js', homeController.myView1);
@@ -264,6 +263,9 @@ polyserve.startServers(options).then((server) => {
   app.get('/auth/pinterest/callback', passport.authorize('pinterest', { failureRedirect: '/login' }), (req, res) => {
     res.redirect('/api/pinterest');
   });
+
+
+  app.get('/*', homeController.index);
 
   /**
    * Error Handler.
