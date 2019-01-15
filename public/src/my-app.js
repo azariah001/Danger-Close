@@ -20,7 +20,6 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -47,8 +46,14 @@ class MyApp extends PolymerElement {
         }
 
         app-header {
+          top: unset;
+          bottom: var(--layout-fixed-top_-_top);
           color: #fff;
           background-color: var(--app-primary-color);
+        }
+        
+        app-header > app-toolbar::before {
+          height: 0;
         }
 
         app-header paper-icon-button {
@@ -84,21 +89,14 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
+            <a name="view1" href="[[rootPath]]view1">Home Page</a>
+            <a name="view2" href="[[rootPath]]view2">Character Editor</a>
+            <a name="view3" href="[[rootPath]]view3">Character Player</a>
           </iron-selector>
         </app-drawer>
 
         <!-- Main content -->
         <app-header-layout has-scrolling-region="">
-
-          <app-header slot="header" condenses="" reveals="" effects="waterfall">
-            <app-toolbar>
-              <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
-            </app-toolbar>
-          </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <my-view1 name="view1"></my-view1>
@@ -106,6 +104,7 @@ class MyApp extends PolymerElement {
             <my-view3 name="view3"></my-view3>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
+          
         </app-header-layout>
       </app-drawer-layout>
     `;
