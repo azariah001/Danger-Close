@@ -21,6 +21,7 @@ class MyView1 extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
+<<<<<<< Updated upstream
           width: 100%;
           min-height: 100px;
           border: 1px solid black;
@@ -72,6 +73,8 @@ class MyView1 extends PolymerElement {
           margin-top: var(--text-margin);
           margin-bottom: calc(var(--text-margin)/2);
           text-align: center;
+=======
+>>>>>>> Stashed changes
         }
       </style>
 
