@@ -20,6 +20,7 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -129,10 +130,10 @@ class MyApp extends PolymerElement {
   }
 
   _routePageChanged(page) {
-     // Show the corresponding page according to the route.
-     //
-     // If no page was found in the route data, page will be an empty string.
-     // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
+    // Show the corresponding page according to the route.
+    //
+    // If no page was found in the route data, page will be an empty string.
+    // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'view1';
     } else if (['view1', 'view2', 'view3'].indexOf(page) !== -1) {
